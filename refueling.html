@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="menu.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tankowania</title>
+</head>
+
+<body>
+    <!-- Główny ekran -- START -->
+    <div class="container">
+        <h2>Tankowania</h2>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            + Dodaj
+        </button>
+        <div class="container mt-5 mb-5" style="height: 600px !important; overflow-y:scroll">
+            <table class="table table-striped" id="userTable">
+                <thead>
+                    <th>Id</th>
+                    <th>Model</th>
+                    <th>Nr.rejestracyjny</th>
+                    <th>Ilość paliwa</th>
+                    <th>Koszt</th>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+        <div id="toast-add-refueling" class="alert alert-success alert-dismissible fade show" role="alert"
+            style="display: none;">
+           Tankowanie dodane!
+            <button onclick="onCloseToast()" type="button" class="btn-close"></button>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="onBackClick()">Powrót</button>
+    </div>
+    <!-- Główny ekran -- KONIEC -->
+    <!-- Modal Dodaj tankowanie -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Dodaj tankowanie</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Cena/litr</span>
+                        <input id="login-input" type="number" maxlength="6" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Ilość w litrach</span>
+                        <input id="login-input" type="number" maxlength="3" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Przebieg</span>
+                        <input id="login-input" type="number" maxlength="7" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm">
+                    </div>               
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Data</span>
+                        <form>
+                            <input type=datetime-local step=3600 /><br />
+                          </form>
+                    </div>
+                    <p id="danger-message" class="text-danger text-wrap"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+                    <button type="button" class="btn btn-primary" onclick="onAddUser()">Dodaj</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-add-user" class="alert alert-primary alert-dismissible fade show" role="alert"
+        style="display: none;">
+        Użytkownik został dodany!
+        <button onclick="onCloseToast()" type="button" class="btn-close"></button>
+    </div>
+    <script type="text/javascript" src="/js/refueling.js"></script>
+</body>
+
+</html>
